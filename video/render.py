@@ -455,6 +455,122 @@ def kayi_damga():
     return im
 
 
+
+# ------------------------------------------------------------------ motifli kartlar
+def star8(d, cx, cy, r, **kw):
+    pts = []
+    for k in range(16):
+        a = math.pi / 8 * k - math.pi / 2
+        rr = r if k % 2 == 0 else r * 0.72
+        pts.append((cx + rr * math.cos(a), cy + rr * math.sin(a)))
+    d.polygon(pts, **kw)
+
+
+@functools.lru_cache(None)
+def card_bg(tone):
+    top, bot = ((40, 10, 18), (110, 28, 40)) if tone == "bordo" else ((8, 16, 34), (30, 44, 70))
+    g = np.linspace(0, 1, H)[:, None]
+    arr = (np.array(top) * (1 - g) + np.array(bot) * g)[:, None, :].repeat(W, 1).astype(np.uint8)
+    im = Image.fromarray(arr).convert("RGBA")
+    lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    for y in range(-60, H + 120, 150):
+        for x in range(-60 + (75 if (y // 150) % 2 else 0), W + 120, 150):
+            star8(d, x, y, 46, outline=GOLD + (34,), width=3)
+    im.alpha_composite(lay)
+    return im.convert("RGB")
+
+
+def motif(d, kind, cx, cy, t):
+    G = GOLD + (255,)
+    if kind == "tent":
+        d.rectangle([0, cy + 120, W, H], fill=(14, 8, 12, 255))
+        for k, (x, s) in enumerate(((cx - 300, 0.8), (cx, 1.15), (cx + 300, 0.9))):
+            w, h = 220 * s, 150 * s
+            b = cy + 120
+            d.rectangle([x - w / 2, b - h * 0.55, x + w / 2, b], fill=G)
+            d.pieslice([x - w / 2, b - h * 1.25, x + w / 2, b + h * 0.05 - h * 0.55 + h * 0.1], 180, 360, fill=G)
+            d.rectangle([x - w * 0.12, b - h * 0.4, x + w * 0.12, b], fill=(40, 12, 20, 255))
+    elif kind == "dome":
+        b = cy + 220
+        d.rectangle([cx - 230, b - 230, cx + 230, b], fill=G)
+        d.rectangle([cx - 250, b - 250, cx + 250, b - 220], fill=G)
+        d.pieslice([cx - 210, b - 470, cx + 210, b - 50], 180, 360, fill=G)
+        d.line([(cx, b - 260), (cx, b - 330)], fill=G, width=1)
+        d.rectangle([cx - 6, b - 330, cx + 6, b - 260], fill=G)
+        crescent_small(d, cx, b - 365, 30)
+        for k in (-1, 0, 1):
+            d.rounded_rectangle([cx + k * 130 - 38, b - 170, cx + k * 130 + 38, b - 40], 36, fill=(40, 12, 20, 255))
+        d.rectangle([0, b, W, H], fill=(14, 8, 12, 255))
+    elif kind == "castle":
+        b = cy + 230
+        d.rectangle([cx - 420, b - 230, cx + 420, b], fill=G)
+        for x in range(int(cx - 420), int(cx + 420), 60):
+            d.rectangle([x, b - 270, x + 34, b - 230], fill=G)
+        for tx in (cx - 380, cx, cx + 380):
+            d.rectangle([tx - 75, b - 400, tx + 75, b], fill=G)
+            for x in range(int(tx - 75), int(tx + 75), 44):
+                d.rectangle([x, b - 440, x + 26, b - 400], fill=G)
+        d.pieslice([cx - 60, b - 150, cx + 60, b - 30], 180, 360, fill=(40, 12, 20, 255))
+        d.rectangle([cx - 60, b - 90, cx + 60, b], fill=(40, 12, 20, 255))
+        d.rectangle([0, b, W, H], fill=(14, 8, 12, 255))
+    elif kind == "spears":
+        b = cy + 260
+        rnd = random.Random(5)
+        for k in range(26):
+            x = 30 + k * 40 + rnd.uniform(-8, 8)
+            top = b - 420 - rnd.uniform(0, 110) + 8 * math.sin(t * 2 + k)
+            d.line([(x, b), (x, top)], fill=G, width=6)
+            d.polygon([(x - 13, top), (x + 13, top), (x, top - 46)], fill=G)
+            if k % 6 == 2:
+                wv = 10 * math.sin(t * 3 + k)
+                d.polygon([(x, top + 10), (x + 110, top + 30 + wv), (x, top + 75)], fill=BORDO + (255,), outline=G)
+        d.rectangle([0, b, W, H], fill=(14, 8, 12, 255))
+    elif kind == "star":
+        r = 260 + 8 * math.sin(t * 1.5)
+        star8(d, cx, cy, r, outline=G, width=14)
+        star8(d, cx, cy, r * 0.62, fill=BORDO + (255,), outline=G, width=8)
+        crescent_small(d, cx, cy, 70)
+    elif kind == "coin":
+        r = 270
+        cy += 60
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(196, 196, 204, 255), outline=(120, 120, 130, 255), width=10)
+        d.ellipse([cx - r * 0.78, cy - r * 0.78, cx + r * 0.78, cy + r * 0.78], outline=(130, 130, 140, 255), width=6)
+        for k in range(48):
+            a = k * math.pi / 24
+            x, y = cx + r * 0.89 * math.cos(a), cy + r * 0.89 * math.sin(a)
+            d.ellipse([x - 7, y - 7, x + 7, y + 7], fill=(130, 130, 140, 255))
+        d.text((cx, cy), "AKÇE", font=F("Cinzel_900Black.ttf", 110), fill=(110, 110, 120, 255), anchor="mm")
+    elif kind == "lightning":
+        cy += 70
+        pts = [(cx + 40, cy - 330), (cx - 140, cy + 20), (cx - 10, cy + 20), (cx - 90, cy + 330), (cx + 160, cy - 60), (cx + 20, cy - 60), (cx + 120, cy - 330)]
+        d.polygon(pts, fill=GOLD_L + (255,))
+
+
+def crescent_small(d, x, y, R):
+    d.ellipse([x - R, y - R, x + R, y + R], fill=GOLD_L + (255,))
+    d.ellipse([x - R * 0.45, y - R * 1.0, x + R * 1.3, y + R * 0.8], fill=BORDO + (255,))
+
+
+def card_frame(title, sub, kind, t, u):
+    im = card_bg("navy" if kind in ("tent", "spears", "lightning", "castle") else "bordo").copy().convert("RGBA")
+    lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    motif(d, kind, W / 2, 760, t)
+    glow = lay.filter(ImageFilter.GaussianBlur(22))
+    im.alpha_composite(glow)
+    im.alpha_composite(lay)
+    d = ImageDraw.Draw(im)
+    a = ease((t - 0.1) / 0.6)
+    fs = 92 if FONT_BIG.getlength(title) * 92 / 118 < W - 100 else int(92 * (W - 100) / (FONT_BIG.getlength(title) * 92 / 118))
+    d.text((W / 2, 390), title, font=F("Cinzel_900Black.ttf", fs), fill=GOLD_L + (int(255 * a),),
+           stroke_width=6, stroke_fill=INK + (int(255 * a),), anchor="mm")
+    d.text((W / 2, 475), sub, font=F("Montserrat_600SemiBold.ttf", 42), fill=(255, 255, 255, int(230 * a)),
+           stroke_width=3, stroke_fill=INK + (int(255 * a),), anchor="mm")
+    z = 1 + 0.06 * u
+    return im.convert("RGB").resize((W, H), Image.BILINEAR, box=_zoombox(z))
+
+
 # ------------------------------------------------------------------ görüntü (Ken Burns)
 @functools.lru_cache(None)
 def load_img(key):
@@ -537,6 +653,8 @@ def shot_frame(shot, t, dur):
         return img_frame(shot[1], shot[2] if len(shot) > 2 else {}, u)
     if kind == "map":
         return map_frame(shot[1], shot[2], shot[3] if len(shot) > 3 else {}, t, u)
+    if kind == "card":
+        return card_frame(shot[1], shot[2], shot[3], t, u)
     if kind == "dream":
         return dream_frame(t, dur)
     if kind == "dream_night":
@@ -578,7 +696,7 @@ def static_overlay(ep):
     d.rounded_rectangle([x0, y0, x0 + bw, y0 + 76], 14, fill=BORDO + (240,), outline=GOLD + (255,), width=4)
     d.text((x0 + bw / 2, y0 + 40), badge, font=FONT_BADGE, fill=GOLD_L, anchor="mm")
     d.text((x0 + 4, y0 + 112), ep["title"], font=FONT_TITLE, fill=(255, 255, 255), stroke_width=3, stroke_fill=INK, anchor="lm")
-    d.text((W - 40, H - 60), "Görseller: Wikimedia Commons · Haritalar temsilidir", font=FONT_SMALL,
+    d.text((W - 40, H - 60), "Haritalar ve çizimler temsilidir", font=FONT_SMALL,
            fill=(255, 255, 255, 150), anchor="rm")
     return ov
 
