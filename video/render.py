@@ -634,13 +634,15 @@ def img_frame(key, opts, u):
 
 def map_frame(name, layers, opts, t, u):
     im = draw_map_layer(name, layers, t)
-    z = 1.0 + 0.06 * u
+    z = 1.0 + 0.06 * u + (0.05 if opts.get("shake") else 0)
     cw, ch = W / z, H / z
     ox = oy = 0.0
     if opts.get("shake") and t < opts.get("shake_until", 99):
         amp = 22 * (1 - min(1, t / opts.get("shake_until", 3.0)) * 0.7)
         ox, oy = amp * math.sin(t * 53), amp * math.cos(t * 41)
-    box = ((W - cw) / 2 + ox / z, (H - ch) / 2 + oy / z, (W + cw) / 2 + ox / z, (H + ch) / 2 + oy / z)
+    ox = max(-(W - cw) / 2, min((W - cw) / 2, ox / z))
+    oy = max(-(H - ch) / 2, min((H - ch) / 2, oy / z))
+    box = ((W - cw) / 2 + ox, (H - ch) / 2 + oy, (W + cw) / 2 + ox, (H + ch) / 2 + oy)
     return im.resize((W, H), Image.BILINEAR, box=box)
 
 
