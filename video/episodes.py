@@ -1,0 +1,165 @@
+# -*- coding: utf-8 -*-
+"""Bölüm verileri: her sahne = seslendirme metni + ekrandaki görüntüler.
+
+cap   : ekranda altyazı olarak görünen metin
+tts   : (isteğe bağlı) seslendirmede okunacak metin (sayılar yazıyla)
+label : sahne boyunca görünen başlık bandı
+big   : kanca sahnesinde ekranın ortasında çıkan büyük yazı
+shots : sahnedeki görüntüler (süre eşit bölünür)
+   ("img", anahtar, {"focus": (x, y), "zoom": "in"|"out", "shake": bool})
+   ("map", harita_adı, [katmanlar])
+   ("dream",)
+"""
+
+# Koordinatlar (enlem, boylam)
+P = dict(
+    sogut=(40.02, 30.18), bursa=(40.18, 29.06), iznik=(40.43, 29.72), izmit=(40.77, 29.92),
+    maltepe=(40.93, 29.13), istanbul=(41.01, 28.97), bilecik=(40.14, 29.98), domanic=(39.80, 29.61),
+    koyunhisar=(40.70, 29.78), gelibolu=(40.41, 26.67), cimpe=(40.50, 26.80), edirne=(41.68, 26.56),
+    canakkale=(40.15, 26.41), kosova=(42.68, 21.12), konya=(37.87, 32.48), lapseki=(40.34, 26.69),
+)
+
+OTTOMAN_PEAK = [  # en geniş sınırlar, kaba/temsili çizim
+    (48.2, 16.4), (48.6, 21.5), (48.0, 26.5), (46.5, 30.5), (45.3, 33.5), (45.0, 36.6), (44.0, 39.0),
+    (41.5, 41.7), (41.0, 44.5), (38.5, 44.0), (35.5, 46.0), (33.0, 46.5), (30.0, 48.0), (29.5, 47.7),
+    (26.0, 50.2), (21.0, 40.0), (16.0, 43.0), (12.8, 43.5), (15.0, 41.5), (22.0, 36.5), (24.0, 35.0),
+    (22.0, 31.0), (22.0, 25.0), (30.0, 20.0), (30.5, 10.0), (32.5, 3.0), (35.0, -1.5), (36.5, 2.0),
+    (37.2, 10.0), (33.5, 11.5), (32.5, 15.5), (31.0, 20.0), (32.8, 22.5), (31.5, 25.0), (31.2, 29.0),
+    (35.5, 34.3), (36.8, 30.5), (37.4, 26.5), (39.8, 25.0), (40.5, 22.8), (38.0, 23.8), (36.4, 22.6),
+    (38.4, 21.2), (39.6, 20.0), (42.0, 19.2), (43.5, 16.4), (45.2, 15.8), (46.5, 16.0),
+]
+
+EPISODES = [
+# ------------------------------------------------------------------ 1
+dict(no=1, slug="01-400-cadirlik-asiret", title="400 Çadırlık Aşiret",
+     next="Osmanlı #02 — Osman Bey'in Rüyası",
+     scenes=[
+  dict(style="hook", big="400 ÇADIRDAN\n3 KITAYA",
+       cap="Altı yüz yıl dünyayı etkileyen bir imparatorluk... birkaç yüz çadırla başladı.",
+       shots=[("map", "world", [("blob", OTTOMAN_PEAK, 0.2, 2.2), ("dot", P["sogut"], "Söğüt", 0.0)])]),
+  dict(label="13. YÜZYIL · MOĞOL İSTİLASI",
+       cap="On üçüncü yüzyıl. Moğol istilası Orta Asya'yı ve İran'ı yerle bir ediyor. Türkmen boyları batıya, Anadolu'ya göç ediyor.",
+       shots=[("img", "mongol_indus", {"focus": (0.5, 0.45), "zoom": "in"}),
+              ("map", "asia", [("arrow", (40.5, 60.0), (39.5, 34.0), 0.0), ("arrow", (37.5, 58.0), (38.5, 36.0), 0.3),
+                               ("arrow", (42.0, 57.0), (40.5, 37.0), 0.6), ("dot", (39.0, 33.5), "ANADOLU", 1.2)])]),
+  dict(label="KAYI BOYU · ERTUĞRUL GAZİ",
+       cap="Bunlardan biri, Oğuzların Kayı boyuna bağlı küçük bir topluluk. Başlarında Ertuğrul Gazi var.",
+       shots=[("img", "kayi_damga", {"zoom": "in"}), ("card", "ERTUĞRUL GAZİ", "Kayı Beyi", "tent")]),
+  dict(label="SÖĞÜT VE DOMANİÇ",
+       cap="Rivayete göre Selçuklu sultanı onlara, Bizans sınırındaki Söğüt ve Domaniç'i yurt olarak veriyor.",
+       shots=[("map", "nw_anatolia", [("border", [(41.2, 30.55), (40.6, 30.35), (40.1, 30.45), (39.6, 30.1), (39.0, 30.0)], 0.0),
+                                       ("dot", P["sogut"], "Söğüt", 0.4), ("dot", P["domanic"], "Domaniç", 1.0),
+                                       ("text", (40.75, 28.6), "BİZANS", 0.2), ("text", (39.25, 30.45), "SELÇUKLU", 0.2)])]),
+  dict(label="BİR UÇ BÖLGESİ",
+       cap="Burası bir uç bölgesi. Bir yanda zayıflayan Selçuklu, diğer yanda çökmekte olan Bizans. Fırsat da tehlike de tam burada.",
+       shots=[("map", "nw_anatolia", [("border", [(41.2, 30.55), (40.6, 30.35), (40.1, 30.45), (39.6, 30.1), (39.0, 30.0)], -9),
+                                       ("text", (40.75, 28.6), "BİZANS", -9), ("text", (39.25, 30.45), "SELÇUKLU", -9),
+                                       ("pulse", P["sogut"], "Söğüt", 0.0)])]),
+  dict(label="1281 · OSMAN BEY",
+       cap="Ertuğrul Gazi vefat ettiğinde yerine oğlu geçti. Adı... Osman. Ve bir gece gördüğü bir rüya, her şeyi değiştirecekti.",
+       shots=[("card", "ERTUĞRUL GAZİ", "Söğüt'te defnedildi", "dome"), ("card", "OSMAN BEY", "Beyliğin kurucusu", "star")]),
+]),
+# ------------------------------------------------------------------ 2
+dict(no=2, slug="02-osman-beyin-ruyasi", title="Osman Bey'in Rüyası",
+     next="Osmanlı #03 — Bursa: İlk Başkent",
+     scenes=[
+  dict(style="hook", big="BİR RÜYA\n600 YIL",
+       cap="Bir rüya... ve altı yüz yıllık bir devlet.",
+       shots=[("dream_night",)]),
+  dict(label="ŞEYH EDEBALİ",
+       cap="Osman Bey, Söğüt'teki küçük beyliğin başında. Bilge bir derviş olan Şeyh Edebali'nin evinde misafirdir.",
+       shots=[("card", "OSMAN BEY", "Söğüt", "tent"), ("card", "ŞEYH EDEBALİ", "Bilge bir derviş", "dome")]),
+  dict(label="RİVAYET",
+       cap="Rivayete göre o gece bir rüya görür. Edebali'nin göğsünden çıkan bir ay, Osman'ın göğsüne girer. Osman'ın göğsünden ise dalları dünyayı saran dev bir ağaç yükselir.",
+       shots=[("dream",)]),
+  dict(label="MALHUN HATUN İLE EVLİLİK",
+       cap="Edebali rüyayı şöyle yorumlar: Soyundan gelenler cihana hükmedecek. Ve kızını Osman'la evlendirir.",
+       shots=[("card", "MALHUN HATUN", "Şeyh Edebali'nin kızı", "star")]),
+  dict(label="1299 KURULUŞ · 1302 KOYUNHİSAR",
+       cap="Gelenek, beyliğin kuruluşunu 1299 olarak kabul eder. 1302'de Osman Bey, Koyunhisar'da bir Bizans ordusunu yener.",
+       tts="Gelenek, beyliğin kuruluşunu bin iki yüz doksan dokuz olarak kabul eder. Bin üç yüz ikide Osman Bey, Koyunhisar'da bir Bizans ordusunu yener.",
+       shots=[("map", "nw_anatolia", [("dot", P["sogut"], "Söğüt", 0.0), ("dot", P["istanbul"], "Konstantinopolis", 0.0),
+                                       ("arrow", P["sogut"], P["koyunhisar"], 1.0), ("pulse", P["koyunhisar"], "Koyunhisar", 2.2)])]),
+  dict(label="SIRADAKİ HEDEF: BURSA",
+       cap="Osman Bey'in büyük hedefi Bursa'ydı. Ama o şehri fethetmek, oğluna kısmet olacaktı.",
+       shots=[("card", "BURSA", "Bizans'ın zengin şehri", "castle")]),
+]),
+# ------------------------------------------------------------------ 3
+dict(no=3, slug="03-bursa-ilk-baskent", title="Bursa: İlk Başkent",
+     next="Osmanlı #04 — Avrupa'ya İlk Adım",
+     scenes=[
+  dict(style="hook", big="YILLAR SÜREN\nKUŞATMA",
+       cap="Bir şehri almak yıllar sürdü. Ama değdi.",
+       shots=[("card", "", "", "castle")]),
+  dict(label="BURSA ÇEMBER İÇİNDE",
+       cap="Osman Bey, Bizans'ın zengin şehri Bursa'yı çevresine kurdurduğu kalelerle kuşatmıştı. Şehrin dünyayla bağı kesilmişti.",
+       shots=[("map", "bursa_close", [("ring", P["bursa"], "Bursa", 0.0)])]),
+  dict(label="1326 · BURSA FETHEDİLDİ",
+       cap="1326'da Bursa, Orhan Bey'e teslim olur. Rivayete göre Osman Bey bu müjdeyi ölüm döşeğinde alır ve Bursa'ya gömülmeyi vasiyet eder.",
+       tts="Bin üç yüz yirmi altıda Bursa, Orhan Bey'e teslim olur. Rivayete göre Osman Bey bu müjdeyi ölüm döşeğinde alır ve Bursa'ya gömülmeyi vasiyet eder.",
+       shots=[("card", "ORHAN BEY", "Osman Bey'in oğlu", "star"), ("card", "OSMAN GAZİ TÜRBESİ", "Bursa", "dome")]),
+  dict(label="İLK OSMANLI PARASI",
+       cap="Bursa artık başkenttir. Orhan Bey kendi adına gümüş akçe bastırır. Kendi parasını basmak, artık bir devletiz demektir.",
+       shots=[("card", "İLK OSMANLI PARASI", "Gümüş akçe", "coin")]),
+  dict(label="1329 MALTEPE · 1331 İZNİK · 1337 İZMİT",
+       cap="Ardından 1329'da Maltepe'de Bizans imparatoru yenilir. 1331'de İznik, 1337'de İzmit alınır.",
+       tts="Ardından bin üç yüz yirmi dokuzda Maltepe'de Bizans imparatoru yenilir. Bin üç yüz otuz birde İznik, bin üç yüz otuz yedide İzmit alınır.",
+       shots=[("map", "nw_anatolia", [("dot", P["bursa"], "Bursa", 0.0), ("pulse", P["maltepe"], "Maltepe", 0.6),
+                                       ("pulse", P["iznik"], "İznik", 2.6), ("pulse", P["izmit"], "İzmit", 4.4)])]),
+  dict(label="SIRADAKİ HEDEF: AVRUPA",
+       cap="Anadolu'daki Bizans toprakları neredeyse bitmişti. Ama Orhan Bey'in gözü artık denizin öbür tarafındaydı. Avrupa.",
+       shots=[("map", "marmara", [("dot", P["bursa"], "Bursa", -9), ("pulse", P["canakkale"], "Çanakkale Boğazı", 0.5), ("text", (41.75, 26.0), "AVRUPA", 1.5)])]),
+]),
+# ------------------------------------------------------------------ 4
+dict(no=4, slug="04-avrupaya-ilk-adim", title="Avrupa'ya İlk Adım",
+     next="Osmanlı #05 — Savaşta Ölen İlk Padişah",
+     scenes=[
+  dict(style="hook", big="BİR DEPREM\nKAPIYI AÇTI",
+       cap="Bir deprem... Osmanlı'ya Avrupa'nın kapısını açtı.",
+       shots=[("map", "marmara", [("pulse", P["gelibolu"], "Gelibolu", 0.0)], {"shake": True})]),
+  dict(label="BİZANS'TA TAHT KAVGASI",
+       cap="On dördüncü yüzyılın ortası. Bizans iç savaşın içinde. Taht kavgasındaki taraflardan biri, Orhan Bey'den asker yardımı ister.",
+       shots=[("card", "BİZANS'TA İÇ SAVAŞ", "Taht kavgası", "castle")]),
+  dict(label="ÇİMPE · AVRUPA'DAKİ İLK ÜS",
+       cap="Osmanlı askerleri boğazı geçer ve Rumeli'yi yakından tanır. 1352 civarında Çimpe Kalesi, Osmanlıların eline geçer.",
+       tts="Osmanlı askerleri boğazı geçer ve Rumeli'yi yakından tanır. Bin üç yüz elli iki civarında Çimpe Kalesi, Osmanlıların eline geçer.",
+       shots=[("map", "marmara", [("arrow", P["lapseki"], P["cimpe"], 0.4), ("pulse", P["cimpe"], "Çimpe", 2.4)])]),
+  dict(label="1354 · GELİBOLU",
+       cap="1354'te büyük bir deprem Gelibolu'nun surlarını yıkar. Orhan Bey'in oğlu Süleyman Paşa vakit kaybetmez ve şehre yerleşir.",
+       tts="Bin üç yüz elli dörtte büyük bir deprem Gelibolu'nun surlarını yıkar. Orhan Bey'in oğlu Süleyman Paşa vakit kaybetmez ve şehre yerleşir.",
+       shots=[("map", "marmara", [("pulse", P["gelibolu"], "Gelibolu", 0.0)], {"shake": True, "shake_until": 2.0})]),
+  dict(label="RUMELİ'DE İSKÂN",
+       cap="Anadolu'dan Türkmen aileler Rumeli'ye yerleştirilir, yeni köyler kurulur. Balkanlardaki Osmanlı varlığının temeli böyle atılır.",
+       shots=[("card", "RUMELİ'DE İSKÂN", "Yeni köyler, yeni yurtlar", "tent")]),
+  dict(label="ARTIK İKİ KITADA",
+       cap="Artık Osmanlı iki kıtadaydı. Sıradaki hedef, Trakya'nın kalbi Edirne. Ve bu işi Orhan'ın oğlu Murad üstlenecekti.",
+       shots=[("map", "marmara", [("dot", P["gelibolu"], "Gelibolu", 0.0), ("dot", P["bursa"], "Bursa", 0.0),
+                                   ("arrow", P["gelibolu"], P["edirne"], 1.5), ("pulse", P["edirne"], "Edirne", 3.0)])]),
+]),
+# ------------------------------------------------------------------ 5
+dict(no=5, slug="05-savasta-olen-ilk-padisah", title="Savaşta Ölen İlk Padişah",
+     next="Osmanlı #06 — Yıldırım Lakabı Nereden Geliyor?",
+     scenes=[
+  dict(style="hook", big="ZAFER VE ÖLÜM\nAYNI GÜN",
+       cap="Savaşı kazandı... ama savaş meydanında hayatını kaybetti.",
+       shots=[("card", "", "", "spears")]),
+  dict(label="I. MURAD · HÜDAVENDİGÂR",
+       cap="Birinci Murad, babası Orhan'dan iki kıtaya yayılmış bir beylik devralır.",
+       shots=[("card", "I. MURAD", "Hüdavendigâr", "star")]),
+  dict(label="YENİ BAŞKENT: EDİRNE",
+       cap="Edirne'yi fetheder ve burayı yeni başkent yapar. Artık devletin merkezi Avrupa'dadır.",
+       shots=[("map", "marmara", [("dot", P["bursa"], "Bursa", 0.0), ("arrow", P["bursa"], P["edirne"], 0.6), ("pulse", P["edirne"], "Edirne", 2.0)]),
+              ("card", "EDİRNE", "Yeni başkent", "dome")]),
+  dict(label="YENİÇERİ OCAĞI",
+       cap="Onun döneminde padişaha bağlı, maaşlı ve daimî bir piyade birliği kurulur. Yeniçeri Ocağı.",
+       shots=[("card", "YENİÇERİ OCAĞI", "Daimî ve maaşlı piyade", "spears")]),
+  dict(label="1389 · I. KOSOVA SAVAŞI",
+       cap="1389, Kosova Ovası. Osmanlı ordusu Balkan ittifakını yener. Ancak bir Sırp soylusu, teslim olacakmış gibi yaklaşarak Sultan Murad'ı hançerler.",
+       tts="Bin üç yüz seksen dokuz, Kosova Ovası. Osmanlı ordusu Balkan ittifakını yener. Ancak bir Sırp soylusu, teslim olacakmış gibi yaklaşarak Sultan Murad'ı hançerler.",
+       shots=[("map", "balkans", [("dot", P["edirne"], "Edirne", 0.0), ("arrow", P["edirne"], P["kosova"], 0.3), ("pulse", P["kosova"], "Kosova", 1.8)]),
+              ("card", "I. KOSOVA SAVAŞI", "Haziran 1389", "spears")]),
+  dict(label="SIRADAKİ: YILDIRIM",
+       cap="Murad, savaş meydanında hayatını kaybeden tek Osmanlı padişahı oldu. Yerine oğlu geçti. Lakabı ise... Yıldırım.",
+       shots=[("card", "YILDIRIM", "Sıradaki bölüm", "lightning")]),
+]),
+]
