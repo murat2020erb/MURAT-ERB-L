@@ -1,7 +1,13 @@
 # 🎬 Denizli Gençlik Merkezi – Reels Senaryoları
 
 > **[Köşeli parantez]** içindeki yerlere merkezin gerçek bilgilerini yazın.
-> Kurs ve etkinliklerin ücretsiz olduğunu yazmadan önce merkezle teyit edin.
+
+## 🌐 İnternetten bulunan bilgiler (Kasım 2026 araması)
+
+- Denizli genelinde Gençlik ve Spor Bakanlığı'na bağlı **9 gençlik merkezi** var ve gençlere **ücretsiz** hizmet veriyor. ([Habertürk](https://www.haberturk.com/denizli-haberleri/116693896-serinhisar-genclik-merkezi-hizmete-girdi))
+- Bu merkezlerden biri olan Serinhisar Gençlik Merkezi'ndeki kurslar şunlar: **Akıl ve Zekâ Oyunları**, **Resim ve Görsel Sanatlar**, **Müzik ve Enstrüman**, **Robotik Kodlama**, **Gençlik Kütüphanesi**. İl merkezindeki programın farklı olabileceğini unutmayın.
+- Haberlerde Denizli Gençlik Merkezi Müdürü olarak **Hasan Sarı** anılıyor, ancak haberin tarihi belli değil. ([haberler.com](https://www.haberler.com/genclik-merkezi-uyeleri-denizli-de-toplandi-8311206-haberi/))
+- ❗ **Bulunamayanlar:** Merkezin açık adresi, güncel kurs programı ve Instagram hesabı. Bunları merkezden ya da Denizli Gençlik ve Spor İl Müdürlüğü'nden alın.
 
 **Format (tüm sürümler):** Dikey 9:16 (1080x1920)
 
@@ -15,12 +21,12 @@
 |---|---|---|
 | 0–2 sn | Kapıdan içeri hızlıca giren bir genç (telefonu göğüs hizasında tutarak çekin) | **"Denizli'de boş vaktin mi var? 👀"** |
 | 2–5 sn | Merkezin dış cephesi ve tabelası, hızlı geçişle | **Denizli Gençlik Merkezi** |
-| 5–9 sn | Atölye ya da kurs sahnesi (resim, müzik, kodlama…) | 🎨 **[Kurs adı]** |
-| 9–13 sn | Spor, masa tenisi, satranç gibi oyunlar | ⚽ **Spor & oyun** |
+| 5–9 sn | Atölye ya da kurs sahnesi (resim, müzik, robotik kodlama, akıl ve zekâ oyunları) | 🎨 **Resim • Müzik • Robotik Kodlama** |
+| 9–13 sn | Akıl ve zekâ oyunları, satranç, masa tenisi | 🧩 **Akıl & Zekâ Oyunları** |
 | 13–17 sn | Gülüşen, sohbet eden bir grup genç | 🤝 **Yeni arkadaşlar** |
 | 17–21 sn | Gezi, kamp ya da etkinlik görüntüleri | 🏕️ **Geziler & kamplar** |
-| 21–25 sn | Kütüphane ya da çalışma alanı | 📚 **Ders çalışma alanı** |
-| 25–30 sn | Grup halinde kameraya el sallayan gençler + logo | **"Hepsi ÜCRETSİZ! Seni de bekliyoruz 💙"** + **[adres / Instagram hesabı]** |
+| 21–25 sn | Gençlik kütüphanesi / çalışma alanı | 📚 **Gençlik Kütüphanesi** |
+| 25–30 sn | Grup halinde kameraya el sallayan gençler + logo | **"Denizli'de 9 merkez, hepsi ÜCRETSİZ! Seni de bekliyoruz 💙"** + **[adres / Instagram hesabı]** |
 
 ---
 
@@ -79,7 +85,8 @@
 **Tanıtım / Kısa sürüm için:**
 ```
 Denizli'de gençlerin buluşma noktası burası! 💙
-🎨 Atölyeler | ⚽ Spor | 🏕️ Geziler | 📚 Çalışma alanı
+🎨 Resim & Müzik | 🤖 Robotik Kodlama | 🧩 Akıl ve Zekâ Oyunları | 📚 Gençlik Kütüphanesi
+Denizli'de 9 gençlik merkezi, hepsi ücretsiz!
 Kayıt için: [link / adres]
 Arkadaşını etiketle, birlikte gelin! 👇
 
