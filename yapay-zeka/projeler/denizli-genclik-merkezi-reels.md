@@ -18,6 +18,12 @@
 - ⚠️ Bu bilgiler arama sonuçlarından alındı; resmî sitelere bu ortamdan erişilemediği için doğrulanamadı. Paylaşmadan önce Instagram hesabından ya da telefonla teyit edin.
 - ❗ Merkezin güncel kurs listesi bulunamadı. Kurs sahnelerine merkezin Instagram'ındaki güncel kursları yazın.
 
+## 🎥 Hazır video
+
+`denizli-genclik-merkezi-reels.mp4` – 30 sn, 1080x1920, sessiz (müziği Instagram'da ekleyin).
+Sahneler: Açılış → Başlık → Resim & Sanat → Müzik → Robotik & Teknoloji → Tiyatro → Akıl & Zekâ Oyunları → Spor → Yeni Arkadaşlar → İletişim.
+Fotoğraflar temsilîdir (Wikimedia Commons); kaynaklar `gorsel-kaynaklari.md` dosyasında. Merkezde çekilmiş gerçek görüntüler varsa CapCut'ta bunların yerine koymanız önerilir.
+
 **Format (tüm sürümler):** Dikey 9:16 (1080x1920)
 
 ---
@@ -100,6 +106,8 @@ Bilgi için: @gsb_denizligm
 Arkadaşını etiketle, birlikte gelin! 👇
 
 #Denizli #GSB #DenizliGençlikMerkezi #GençlikMerkezi #Gençlik #DenizliEtkinlik #Reels
+
+Görseller: Wikimedia Commons (temsilî, kaynaklar için profildeki linke bakın)
 ```
 
 **Röportaj sürümü için:**
