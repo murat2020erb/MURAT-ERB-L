@@ -22,7 +22,7 @@
 
 `denizli-genclik-merkezi-reels.mp4` – 30 sn, 1080x1920, sessiz (müziği Instagram'da ekleyin).
 Sahneler: Açılış → Başlık → Resim & Sanat → Müzik → Robotik & Teknoloji → Tiyatro → Akıl & Zekâ Oyunları → Spor → Yeni Arkadaşlar → İletişim.
-Fotoğraflar temsilîdir (Wikimedia Commons); kaynaklar `gorsel-kaynaklari.md` dosyasında. Merkezde çekilmiş gerçek görüntüler varsa CapCut'ta bunların yerine koymanız önerilir.
+Fotoğraflar temsilîdir (Wikimedia Commons). Videoda kaynak yazısı yok; lisans gereği fotoğrafçı adları gönderi açıklamasının sonunda yer almalı (aşağıdaki açıklamada hazır). Ayrıntılar `gorsel-kaynaklari.md` dosyasında. Merkezde çekilmiş gerçek görüntüler varsa CapCut'ta bunların yerine koymanız önerilir.
 
 **Format (tüm sürümler):** Dikey 9:16 (1080x1920)
 
@@ -107,7 +107,7 @@ Arkadaşını etiketle, birlikte gelin! 👇
 
 #Denizli #GSB #DenizliGençlikMerkezi #GençlikMerkezi #Gençlik #DenizliEtkinlik #Reels
 
-Görseller: Wikimedia Commons (temsilî, kaynaklar için profildeki linke bakın)
+📷 Görseller: Wikimedia Commons – Claudia.Garad (CC BY-SA 4.0), Patrik Kunec (CC BY 4.0), George (CC BY-SA 3.0), Shixart1985 (CC BY 2.0), NASA Armstrong Flight Research Center / NASA/Ken Ulbrich (Public domain), Azizbek 2010 (CC BY-SA 4.0), Nokedlyy (CC0), Denniskwaria (Public domain), Ștefan Jurcă from Grenoble, France (CC BY 2.0)
 ```
 
 **Röportaj sürümü için:**

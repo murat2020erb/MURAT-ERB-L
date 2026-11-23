@@ -88,7 +88,7 @@ for i in range(TOTAL*FPS):
     d.rounded_rectangle((60,80,W-60,90),5,fill=(255,255,255,70))
     d.rounded_rectangle((60,80,60+int((W-120)*t/TOTAL),90),5,fill=(255,255,255,230))
     ft="GSB DENİZLİ GENÇLİK MERKEZİ"; w=d.textlength(ft,font=foot); d.text(((W-w)/2,H-250),ft,font=foot,fill=(255,255,255,200))
-    c=credit(name); w=d.textlength(c,font=cf); d.text(((W-w)/2,H-190),c,font=cf,fill=(255,255,255,150))
+    pass
     out=Image.alpha_composite(fr,L).convert("RGB")
     # white flash at cuts
     if k>0 and lt<0.12: out=Image.blend(out,Image.new("RGB",(W,H),"white"),0.55*(1-lt/0.12))

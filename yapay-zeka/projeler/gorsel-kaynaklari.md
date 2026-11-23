@@ -1,7 +1,7 @@
 # Görsel Kaynakları ve Lisansları
 
 Videodaki fotoğrafların hepsi Wikimedia Commons'tan alınmış serbest lisanslı görsellerdir. **Denizli Gençlik Merkezi'ne ait değildir**, temsilî görüntülerdir.
-CC BY ve CC BY-SA lisanslı görseller kullanılırken fotoğrafçının adının belirtilmesi gerekir; bu yüzden videoda her sahnenin altında küçük bir kaynak yazısı vardır.
+CC BY ve CC BY-SA lisanslı görseller kullanılırken fotoğrafçının adının belirtilmesi gerekir; bu yüzden kaynaklar videoda değil, Instagram gönderi açıklamasında belirtilmelidir.
 
 | Sahne | Dosya | Fotoğrafçı | Lisans |
 |---|---|---|---|
