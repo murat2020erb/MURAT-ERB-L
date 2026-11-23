@@ -48,3 +48,18 @@ Osmanlı tarihini **kuruluştan (1299) yıkılışa (1922)** kadar, kronolojik s
 - İlber Ortaylı — *Osmanlı'yı Yeniden Keşfetmek*
 - Caroline Finkel — *Osman'ın Rüyası*
 - TDV İslâm Ansiklopedisi (islamansiklopedisi.org.tr) — hızlı ve güvenilir tarih kontrolü için
+
+## Hazır videolar (`videolar/`)
+
+İlk 5 bölüm 1080×1920 MP4 olarak hazır (42–50 sn). Her videonun yanındaki `.txt` dosyası YouTube başlığı, açıklaması, etiketleri ve görsel kaynakçasıdır.
+
+Yeniden üretmek için (`video/` klasörü):
+
+```bash
+pip install piper-tts basemap basemap-data-hires faster-whisper pillow numpy
+# Türkçe ses modeli: huggingface.co/rhasspy/piper-voices → tr/tr_TR/dfki/medium → video/assets/voice/
+python3 render.py          # tüm bölümler
+python3 render.py 2 3      # sadece seçilen bölümler
+```
+
+Sahneleri, metinleri ve görselleri değiştirmek için `video/episodes.py` dosyasını düzenle. Minyatür eklemek için görseli `video/assets/img/` içine koyup ilgili sahnede `("img", "dosya_adı", {...})` kullan.
