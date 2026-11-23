@@ -8,8 +8,8 @@ def F(p,s):
     return _fc[(p,s)]
 Y=(255,205,60)
 # (duration, images, title, subtitle, accent, kind)  kind: hook/title/course/list/cta
-S=[(2.6,["resim2"],"Bu yaz\nne\nyapacaksın?","",Y,"hook"),
-   (2.6,["grup5"],"GSB GENÇLİK\nYAZ KULÜBÜ\n2026","Denizli Gençlik Merkezi",(255,255,255),"title"),
+S=[(2.6,["resim2"],"Yeni bir şey\nöğrenmeye\nhazır mısın?","",Y,"hook"),
+   (2.6,["grup5"],"2026\nKURS\nKAYITLARI","GSB Denizli Gençlik Merkezi",(255,255,255),"title"),
    (2.6,["robot"],"Temel Robotik\nKodlama","Geleceği sen kodla",(130,255,170),"course"),
    (2.6,["satranc"],"Akıl Zekâ\nOyunları","Hamle sırası sende",(255,230,120),"course"),
    (2.6,["office"],"Office\nWord","Bilgisayarda ustalaş",(120,200,255),"course"),

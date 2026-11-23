@@ -1,7 +1,7 @@
-# 🎬 GSB Denizli Gençlik Merkezi – Yaz Kulübü 2026 Reels
+# 🎬 GSB Denizli Gençlik Merkezi – 2026 Kurs Kayıtları Reels
 
 ## 📋 Kaynak: Kurs Kayıt Formu
-**GSB Gençlik : 2026 Denizli Kurs Kayıt Formu** – "GSB Gençlik Yaz Kulübü Programı"
+**GSB Gençlik : 2026 Denizli Kurs Kayıt Formu**
 Kayıt linki: https://docs.google.com/forms/d/e/1FAIpQLSfXOUMpm0SMifSTA2Rgr753KfLUP_mpp5ANcPEwXTn0afcnMg/viewform
 
 - Kurslar **9 yaş ve üzeri** katılımcılara açık
@@ -17,8 +17,8 @@ Kayıt linki: https://docs.google.com/forms/d/e/1FAIpQLSfXOUMpm0SMifSTA2Rgr753Kf
 
 | Süre | Sahne | Slogan |
 |---|---|---|
-| 0–2,6 | Bu yaz ne yapacaksın? | |
-| 2,6–5,2 | GSB GENÇLİK YAZ KULÜBÜ 2026 | Denizli Gençlik Merkezi |
+| 0–2,6 | Yeni bir şey öğrenmeye hazır mısın? | |
+| 2,6–5,2 | 2026 KURS KAYITLARI | GSB Denizli Gençlik Merkezi |
 | 5,2–7,8 | Temel Robotik Kodlama | Geleceği sen kodla |
 | 7,8–10,4 | Akıl Zekâ Oyunları | Hamle sırası sende |
 | 10,4–13 | Office Word | Bilgisayarda ustalaş |
@@ -35,7 +35,7 @@ Videoyu yeniden üretmek için: `reels-olustur.py` (fotoğraflar `gorseller/` kl
 
 ## ✍️ Gönderi açıklaması
 ```
-☀️ Bu yaz boş geçmesin! GSB Gençlik Yaz Kulübü 2026 kayıtları başladı! 💙
+📢 GSB Denizli Gençlik Merkezi 2026 kurs kayıtları başladı! 💙
 
 📚 14 kurs seni bekliyor:
 🤖 Temel Robotik Kodlama
@@ -60,7 +60,7 @@ Videoyu yeniden üretmek için: `reels-olustur.py` (fotoğraflar `gorseller/` kl
 
 Arkadaşını etiketle, birlikte kayıt olun! 👇
 
-#Denizli #GSB #DenizliGençlikMerkezi #GençlikMerkezi #YazKulübü #Gençlik #Kurs #Reels
+#Denizli #GSB #DenizliGençlikMerkezi #GençlikMerkezi #Gençlik #Kurs #Reels
 
 📷 Görseller: Wikimedia Commons – Ștefan Jurcă from Grenoble, France (CC BY 2.0), Patrik Kunec (CC BY 4.0), NASA Armstrong Flight Research Center / NASA/Ken Ulbrich (Public domain), Nokedlyy (CC0), Nayakyashraj (CC BY-SA 4.0), Jorge Royan (CC BY-SA 3.0), Shixart1985 (CC BY 2.0), George (CC BY-SA 3.0), Dosseman (CC BY-SA 4.0), Herpcertou (CC BY-SA 4.0), Ektal12 (CC BY-SA 4.0), Claudia.Garad (CC BY-SA 4.0)
 ```
